@@ -1,29 +1,11 @@
-// Disable no-unused-vars, broken for spread args
-/* eslint no-unused-vars: off */
+// 通信文档 https://www.electronjs.org/zh/docs/latest/tutorial/ipc
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
 
-export type Channels = 'ipc-example';
+const hygraphSyncHandler = {
+  hygraphSync_start: (projectInfo: any) => ipcRenderer.invoke('hygraphSync:start', projectInfo),
+  onHygraphSync: (callback: (msg: { type: string, msg: string }) => void) => ipcRenderer.on('hygraphSync:msg', (_event, value) => callback(value))
+}
 
-const electronHandler = {
-  ipcRenderer: {
-    sendMessage(channel: Channels, ...args: unknown[]) {
-      ipcRenderer.send(channel, ...args);
-    },
-    on(channel: Channels, func: (...args: unknown[]) => void) {
-      const subscription = (_event: IpcRendererEvent, ...args: unknown[]) =>
-        func(...args);
-      ipcRenderer.on(channel, subscription);
+contextBridge.exposeInMainWorld('hygraphSyncApi', hygraphSyncHandler);
 
-      return () => {
-        ipcRenderer.removeListener(channel, subscription);
-      };
-    },
-    once(channel: Channels, func: (...args: unknown[]) => void) {
-      ipcRenderer.once(channel, (_event, ...args) => func(...args));
-    },
-  },
-};
-
-contextBridge.exposeInMainWorld('electron', electronHandler);
-
-export type ElectronHandler = typeof electronHandler;
+export type HygraphSyncHandler = typeof hygraphSyncHandler;

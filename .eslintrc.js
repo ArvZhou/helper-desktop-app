@@ -9,6 +9,12 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'import/no-import-module-exports': 'off',
+    'react/jsx-props-no-spreading': [<enabled>, {
+      "html": "ignore" | "enforce",
+      "custom": "ignore" | "enforce",
+      "explicitSpread": "ignore" | "enforce",
+      "exceptions": [<string>]
+  }]
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
     'no-unused-vars': 'off',
