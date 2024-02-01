@@ -66,7 +66,7 @@ export default function VariablesForm() {
   }, [navigate]);
 
   return (
-    <>
+    <Box p={2}>
       <Box justifyContent="space-between" display="flex">
         <Typography variant="h6" gutterBottom>
           Hygraph Sync Tool
@@ -119,7 +119,7 @@ export default function VariablesForm() {
           <Button type="submit" variant='contained' sx={{ width: 240 }}>Start To Sync</Button>
         </Box>
       </form>
-    </>
+    </Box>
   );
 }
 

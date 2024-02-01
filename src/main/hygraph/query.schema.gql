@@ -1,0 +1,142 @@
+query QuerySchema($projectId: ID!, $environment: String!) {
+  viewer {
+    id
+    project(id: $projectId) {
+      environment(name: $environment) {
+        id
+        name
+        displayName
+        contentModel {
+          models(includeSystemModels: false) {
+            id
+            apiId
+            apiIdPlural
+            displayName
+            fields(includeApiOnlyFields: false, includeHiddenFields: false) {
+              ...fields
+            }
+          }
+          components(includeSystemComponents: false) {
+            id
+            apiId
+            apiIdPlural
+            displayName
+            fields(includeApiOnlyFields: false, includeHiddenFields: false) {
+              ...fields
+            }
+          }
+          enumerations {
+            id
+            apiId
+            displayName
+            values {
+              id
+              apiId
+              displayName
+            }
+            isSystem
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment fields on IField {
+  id
+  apiId
+  isSystem
+  isList
+  displayName
+  parent {
+    apiId
+    displayName
+  }
+  ... on ComponentUnionField {
+    apiId
+    cutype: type
+    components {
+      apiId
+    }
+  }
+  ... on UnionField {
+    apiId
+    displayName
+    union {
+      apiId
+      displayName
+      memberTypes {
+        parent {
+          apiId
+        }
+      }
+    }
+    utype: type
+  }
+  ... on ComponentField {
+    apiId
+    ctype: type
+    component {
+      apiId
+    }
+  }
+  ... on UniDirectionalRelationalField {
+    id
+    relatedModel {
+      apiId
+    }
+    apiId
+    udrtype: type
+    description
+    displayName
+    isList
+    isHidden
+    isRequired
+  }
+  ... on RelationalField {
+    apiId
+    rtype: type
+    relatedField {
+      apiId
+      displayName
+    }
+  }
+  ... on EnumerableField {
+    apiId
+    etype: type
+    enumeration {
+      apiId
+    }
+  }
+  ... on SimpleField {
+    apiId
+    stype: type
+    isLocalized
+    formConfig {
+      id
+      renderer
+      config
+      extension {
+        id
+        name
+        apiId
+      }
+      appElement {
+        id
+        name
+        apiId
+        config
+        src
+        features
+      }
+    }
+    tableConfig {
+      id
+      renderer
+    }
+  }
+  ... on RemoteField {
+    apiId
+  }
+  isSystem
+}

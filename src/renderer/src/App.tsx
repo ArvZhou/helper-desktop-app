@@ -6,8 +6,8 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<VariablesForm />} />
-        <Route path="/log" element={<Log />} />
+        <Route path="/log" element={<VariablesForm />} />
+        <Route path="/" element={<Log />} />
       </Routes>
     </Router>
   );
