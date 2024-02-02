@@ -14,7 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
-import { hygraphSync } from './hygraph/hygraph.sync';
+import { HygraphSync } from './hygraph/hygraph.sync';
 
 class AppUpdater {
   constructor() {
@@ -26,7 +26,7 @@ class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 
-ipcMain.handle('hygraphSync:start', (_event, projectInfo) => hygraphSync(projectInfo));
+ipcMain.handle('hygraphSync:start', (_event, projectInfo) => new HygraphSync(projectInfo));
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');

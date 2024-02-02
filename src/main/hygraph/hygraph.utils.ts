@@ -1,67 +1,107 @@
+import fs from 'fs';
+import { Variables } from '../../renderer/src/contants';
+import {
+  BatchMigrationCreateComponentInput,
+  BatchMigrationCreateEnumerableFieldInput,
+  BatchMigrationCreateEnumerationInput,
+  BatchMigrationCreateModelInput,
+  BatchMigrationCreateSimpleFieldInput,
+  EnumerableFieldType,
+  IField,
+  SimpleFieldType,
+} from '@hygraph/management-sdk';
 
-import fs from 'fs'
-
-type SchemeFragment = {
-  viewer: {
-    project: {
-      contentModel: {
-        models: {
-          apiIdPlural: string,
-          displayName: string
-          apiId: string,
-          fields: unknown[]
-        },
-        components: {
-          apiIdPlural: string,
-          displayName: string
-          apiId: string,
-          fields: unknown[]
-        },
-        enumerations: {
-          id: string,
-          apiId: string,
-          displayName: string,
-          values: unknown[],
-          isSystem: boolean
-        }
-      }
-    }
+export type FieldType = IField & {
+  stype?: SimpleFieldType;
+  etype?: EnumerableFieldType;
+  enumeration?: {
+    apiId: string;
+    displayName: string;
   }
-}
+};
+
+export type ActionType =
+  | 'createModel'
+  | 'createComponent'
+  | 'createEnum'
+  | 'createSimpleField'
+  | 'createField'
+  | 'createEnumerableField'
+  | 'createEnumeration';
+
+export type dataStructure = {
+  models: {
+    apiIdPlural: string;
+    displayName: string;
+    apiId: string;
+    fields: FieldType[];
+  }[];
+  components: {
+    apiIdPlural: string;
+    displayName: string;
+    apiId: string;
+    fields: FieldType[];
+  }[];
+  enumerations: BatchMigrationCreateEnumerationInput[];
+};
+type SchemeFragment = {
+  data: {
+    viewer: {
+      project: {
+        environment: {
+          contentModel: dataStructure;
+        }
+      };
+    };
+  }
+};
+
+export type SyncListItem = {
+  actionType: ActionType;
+  data:
+    | BatchMigrationCreateModelInput
+    | BatchMigrationCreateSimpleFieldInput
+    | BatchMigrationCreateComponentInput
+    | BatchMigrationCreateEnumerationInput
+    | BatchMigrationCreateEnumerableFieldInput
+};
+
+export type CreateModelInput = BatchMigrationCreateModelInput & {
+  fields: FieldType[];
+};
+
+export type CreateComponentInput = BatchMigrationCreateComponentInput & {
+  fields: FieldType[];
+};
+
+export type SimpleFieldInput = BatchMigrationCreateSimpleFieldInput;
+
+export type EnumerableFieldInput = BatchMigrationCreateEnumerableFieldInput;
 
 export const getAllSchemas = async ({
-  managementUrl,
-  token,
-  projectId,
-  environment,
-  searchName
-}: {
-  managementUrl: string
-  token: string
-  projectId: string,
-  environment: string,
-  searchName: string
-}
-) => {
-  const querySchemaSql = fs.readFileSync(`${__dirname}/query.schema.gql`, 'utf-8');
+  MANAGEMENT_URL,
+  TOKEN,
+  PROJECT_ID,
+  ENVIRONMENT,
+}: Variables['TARGET_PROJECT']) => {
+  const querySchemaSql = fs.readFileSync(
+    `${__dirname}/query.schema.gql`,
+    'utf-8',
+  );
 
-  const reslut = await fetch(managementUrl, {
+  const reslut = await fetch(MANAGEMENT_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      "Authorization": `Bearer ${token}`
+      Authorization: `Bearer ${TOKEN}`,
     },
     body: JSON.stringify({
       query: querySchemaSql,
-      variables: { projectId, environment },
-    })
-  })
+      variables: { projectId: PROJECT_ID, environment: ENVIRONMENT },
+    }),
+  });
 
-  const schema = await reslut.json()
+  const allDocument = (await reslut.json()) as SchemeFragment;
 
-  return schema
-}
-
-export const generateMotationTree = () => {
-  return []
-}
+  return allDocument.data.viewer.project.environment.contentModel;
+};

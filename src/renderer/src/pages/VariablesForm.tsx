@@ -68,18 +68,18 @@ export default function VariablesForm() {
   return (
     <Box p={2}>
       <Box justifyContent="space-between" display="flex">
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h5" gutterBottom>
           Hygraph Sync Tool
         </Typography>
         <Box>
           <Button variant="text" component="label" size="small">
-            <Typography variant="body1" textTransform="none">
+            <Typography variant="subtitle1" textTransform="none" fontSize={14}>
               Import Project Infomation
             </Typography>
             <VisuallyHiddenInput type="file" onChange={onSelect} />
           </Button>
           <Button variant="text" component="label" size="small">
-            <Typography variant="body1" textTransform="none">
+            <Typography variant="body1" textTransform="none" fontSize={13}>
               Log
             </Typography>
           </Button>
@@ -87,7 +87,7 @@ export default function VariablesForm() {
       </Box>
       <Divider />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+        <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Sharing Project Info
         </Typography>
         <Paper sx={{ p: 2, mt: 1 }} elevation={1}>
@@ -101,7 +101,7 @@ export default function VariablesForm() {
             }
           </Grid2>
         </Paper>
-        <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
+        <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Target Project Info
           </Typography>
         <Paper sx={{ p: 2, mt: 1 }} elevation={1}>
@@ -116,7 +116,7 @@ export default function VariablesForm() {
           </Grid2>
         </Paper>
         <Box alignItems='center' display="flex" justifyContent='center' marginTop={5}>
-          <Button type="submit" variant='contained' sx={{ width: 240 }}>Start To Sync</Button>
+          <Button type="submit" variant='contained' sx={{ width: 240, fontSize: 13 }}>Start To Sync</Button>
         </Box>
       </form>
     </Box>

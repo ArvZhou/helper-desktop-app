@@ -152,8 +152,8 @@
     "webpack-merge": "^5.9.0"
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.erb.ElectronReact",
+    "productName": "HygraphSync",
+    "appId": "org.erb.HygraphSyncd",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
