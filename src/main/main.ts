@@ -27,6 +27,9 @@ class AppUpdater {
 let mainWindow: BrowserWindow | null = null;
 
 ipcMain.handle('hygraphSync:start', (_event, projectInfo) => new HygraphSync(projectInfo));
+ipcMain.handle('hygraphSync:openLog', () => {
+  shell.openPath(log.transports.file.getFile()!.path);
+})
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');

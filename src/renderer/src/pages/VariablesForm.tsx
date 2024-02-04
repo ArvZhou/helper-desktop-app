@@ -78,7 +78,7 @@ export default function VariablesForm() {
             </Typography>
             <VisuallyHiddenInput type="file" onChange={onSelect} />
           </Button>
-          <Button variant="text" component="label" size="small">
+          <Button variant="text" component="label" size="small" onClick={() => window.hygraphSyncApi.hygraphSync_openLog()}>
             <Typography variant="body1" textTransform="none" fontSize={13}>
               Log
             </Typography>

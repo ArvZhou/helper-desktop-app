@@ -1,38 +1,52 @@
 import fs from 'fs';
 import { Variables } from '../../renderer/src/contants';
 import {
+  BatchMigrationCreateComponentFieldInput,
   BatchMigrationCreateComponentInput,
+  BatchMigrationCreateComponentUnionFieldInput,
   BatchMigrationCreateEnumerableFieldInput,
   BatchMigrationCreateEnumerationInput,
   BatchMigrationCreateModelInput,
+  BatchMigrationCreateRelationalFieldInput,
   BatchMigrationCreateSimpleFieldInput,
+  BatchMigrationCreateUnionFieldInput,
+  ComponentField,
+  ComponentFieldType,
+  ComponentUnionField,
+  ComponentUnionFieldType,
+  EnumerableField,
   EnumerableFieldType,
   IField,
+  RelationalField,
+  RelationalFieldType,
+  SimpleField,
   SimpleFieldType,
+  UnionField,
+  UnionFieldType,
 } from '@hygraph/management-sdk';
 
-export type FieldType = IField & {
-  stype?: SimpleFieldType;
-  etype?: EnumerableFieldType;
-  enumeration?: {
-    apiId: string;
-    displayName: string;
-  }
-};
+export type CommonFieldType =
+  | SimpleField
+  | EnumerableField
+  | ComponentField
+  | ComponentUnionField
+  | RelationalField
+  | UnionField;
 
-export type ActionType =
-  | 'createModel'
-  | 'createComponent'
-  | 'createEnum'
-  | 'createSimpleField'
-  | 'createField'
-  | 'createEnumerableField'
-  | 'createEnumeration';
-
+export type FieldType = CommonFieldType & {
+  cutype?: ComponentUnionFieldType;
+  utype?:  UnionFieldType;
+  ctype?:  ComponentFieldType;
+  udrtype?:  RelationalFieldType;
+  rtype?:  RelationalFieldType;
+  etype?:  EnumerableFieldType;
+  stype?:  SimpleFieldType;
+}
 export type dataStructure = {
   models: {
     apiIdPlural: string;
     displayName: string;
+    description: string;
     apiId: string;
     fields: FieldType[];
   }[];
@@ -50,11 +64,22 @@ type SchemeFragment = {
       project: {
         environment: {
           contentModel: dataStructure;
-        }
+        };
       };
     };
-  }
+  };
 };
+
+export type ActionType =
+  | 'createModel'
+  | 'createComponent'
+  | 'createEnumeration'
+  | 'createSimpleField'
+  | 'createEnumerableField'
+  | 'createComponentField'
+  | 'createComponentUnionField'
+  | 'createRelationalField'
+  | 'createUnionField';
 
 export type SyncListItem = {
   actionType: ActionType;
@@ -64,6 +89,10 @@ export type SyncListItem = {
     | BatchMigrationCreateComponentInput
     | BatchMigrationCreateEnumerationInput
     | BatchMigrationCreateEnumerableFieldInput
+    | BatchMigrationCreateComponentFieldInput
+    | BatchMigrationCreateComponentUnionFieldInput
+    | BatchMigrationCreateRelationalFieldInput
+    | BatchMigrationCreateUnionFieldInput;
 };
 
 export type CreateModelInput = BatchMigrationCreateModelInput & {
@@ -74,9 +103,9 @@ export type CreateComponentInput = BatchMigrationCreateComponentInput & {
   fields: FieldType[];
 };
 
-export type SimpleFieldInput = BatchMigrationCreateSimpleFieldInput;
+// export type SimpleFieldInput = BatchMigrationCreateSimpleFieldInput;
 
-export type EnumerableFieldInput = BatchMigrationCreateEnumerableFieldInput;
+// export type EnumerableFieldInput = BatchMigrationCreateEnumerableFieldInput;
 
 export const getAllSchemas = async ({
   MANAGEMENT_URL,
@@ -105,3 +134,30 @@ export const getAllSchemas = async ({
 
   return allDocument.data.viewer.project.environment.contentModel;
 };
+
+export const getTypeCategory = (type: string) => {
+  if (type in Object.values(SimpleFieldType)) {
+    return 's'
+  }
+
+  if (type in Object.values(EnumerableFieldType)) {
+    return 'e'
+  }
+
+  if (type in Object.values(ComponentFieldType)) {
+    return 'c'
+  }
+
+  if (type in Object.values(ComponentUnionFieldType)) {
+    return 'cu'
+  }
+
+  if (type in Object.values(RelationalFieldType)) {
+    return 'r'
+  }
+
+  if (type in Object.values(UnionFieldType)) {
+    return 'u'
+  }
+  return '';
+}

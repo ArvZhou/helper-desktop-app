@@ -96,6 +96,10 @@ fragment fields on IField {
   ... on RelationalField {
     apiId
     rtype: type
+    relatedModel {
+      apiId,
+      displayName
+    }
     relatedField {
       apiId
       displayName
