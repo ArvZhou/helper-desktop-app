@@ -6,6 +6,7 @@ query QuerySchema($projectId: ID!, $environment: String!) {
         id
         name
         displayName
+        endpoint
         contentModel {
           models(includeSystemModels: false) {
             id
@@ -65,6 +66,16 @@ fragment fields on IField {
     union {
       apiId
       displayName
+      field {
+        apiId
+        createdAt
+        displayName
+        description
+        parent {
+          apiId
+          displayName
+        }
+      }
       memberTypes {
         parent {
           apiId
@@ -97,7 +108,7 @@ fragment fields on IField {
     apiId
     rtype: type
     relatedModel {
-      apiId,
+      apiId
       displayName
     }
     relatedField {

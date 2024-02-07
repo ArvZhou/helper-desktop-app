@@ -1,0 +1,2404 @@
+{
+	"models": [
+		{
+			"id": "574d63250d3547479e894df7fc9d1c04",
+			"apiId": "Test",
+			"apiIdPlural": "Tests",
+			"displayName": "test",
+			"fields": [
+				{
+					"id": "b96f2335575740159a8e9f8d1e0cb417",
+					"apiId": "scheduledIn",
+					"isSystem": true,
+					"isList": true,
+					"displayName": "Scheduled In",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"union": {
+						"apiId": "ScheduledOperationAffectedDocument",
+						"displayName": "Scheduled Operation Affected Document",
+						"field": {
+							"apiId": "affectedDocuments",
+							"createdAt": "2023-07-26T03:08:43.014Z",
+							"displayName": "Affected Documents",
+							"description": null,
+							"parent": {
+								"apiId": "ScheduledOperation",
+								"displayName": "Scheduled Operation"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Asset"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "TestModels"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "NewTest"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "ModelGeneratedByApi"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test202425"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				},
+				{
+					"id": "7a5aad2745da4a14804245cdcb9473d9",
+					"apiId": "publishedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published By",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last published this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "6c28c871ca8343c0b670be0a905739e5",
+					"apiId": "publishedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published At",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "6c28c871-ca83-43c0-b670-be0a905739e5-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "6c28c871-ca83-43c0-b670-be0a905739e5-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "22a9567608c2462ea6be618cafc5e86d",
+					"apiId": "updatedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated By",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last updated this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "d74e271e6cf243528ed554ab6a5f8cf5",
+					"apiId": "updatedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated At",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "d74e271e-6cf2-4352-8ed5-54ab6a5f8cf5-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "d74e271e-6cf2-4352-8ed5-54ab6a5f8cf5-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "a90d2a493340407c93de4341f015dbf4",
+					"apiId": "createdBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created By",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that created this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "ab4f22b8273e4c579d856a19afa4e550",
+					"apiId": "createdAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created At",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "ab4f22b8-273e-4c57-9d85-6a19afa4e550-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "ab4f22b8-273e-4c57-9d85-6a19afa4e550-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "cba71108b3cd4f698402cd0e3ca1e1d7",
+					"apiId": "id",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "ID",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"stype": "ID",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "cba71108-b3cd-4f69-8402-cd0e3ca1e1d7-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "cba71108-b3cd-4f69-8402-cd0e3ca1e1d7-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "5560bde425bc4971a04329d5c44fa90c",
+					"apiId": "testComponent",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "test component",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"cutype": "COMPONENT_UNION",
+					"components": [
+						{
+							"apiId": "TestComponent"
+						}
+					]
+				},
+				{
+					"id": "8468ad9445144c1484fdb98a0e25d9f7",
+					"apiId": "modelGeneratedByApi",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "ModelGeneratedByApi",
+					"parent": {
+						"apiId": "Test",
+						"displayName": "test"
+					},
+					"union": {
+						"apiId": "ModelGeneratedByApiSdfsdfasdfdsf",
+						"displayName": "ModelGeneratedByApiSdfsdfasdfdsf",
+						"field": {
+							"apiId": "sdfsdfasdfdsf",
+							"createdAt": "2024-02-04T06:54:02.548Z",
+							"displayName": "dfsfasdfas",
+							"description": null,
+							"parent": {
+								"apiId": "ModelGeneratedByApi",
+								"displayName": "model generated by api"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Test"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				}
+			]
+		},
+		{
+			"id": "a18e3574121c429f87c7bcea6043518f",
+			"apiId": "TestModels",
+			"apiIdPlural": "PluralTestModels",
+			"displayName": "testModels",
+			"fields": [
+				{
+					"id": "139ec6ef59a746c1975adbbfcb033787",
+					"apiId": "scheduledIn",
+					"isSystem": true,
+					"isList": true,
+					"displayName": "Scheduled In",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"union": {
+						"apiId": "ScheduledOperationAffectedDocument",
+						"displayName": "Scheduled Operation Affected Document",
+						"field": {
+							"apiId": "affectedDocuments",
+							"createdAt": "2023-07-26T03:08:43.014Z",
+							"displayName": "Affected Documents",
+							"description": null,
+							"parent": {
+								"apiId": "ScheduledOperation",
+								"displayName": "Scheduled Operation"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Asset"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "TestModels"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "NewTest"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "ModelGeneratedByApi"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test202425"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				},
+				{
+					"id": "3da2de0bf11f498086ef1ad636e8f165",
+					"apiId": "publishedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published By",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last published this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "4260ac8b9f39481e86f8228b85efda0b",
+					"apiId": "publishedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published At",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "4260ac8b-9f39-481e-86f8-228b85efda0b-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "4260ac8b-9f39-481e-86f8-228b85efda0b-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "0c2f72452df941099d9a620227bd42b7",
+					"apiId": "updatedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated By",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last updated this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "30006ad62d4d43c2a575a3c648d7af1d",
+					"apiId": "updatedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated At",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "30006ad6-2d4d-43c2-a575-a3c648d7af1d-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "30006ad6-2d4d-43c2-a575-a3c648d7af1d-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "6187aea376df42b68a43937c6f1c48b1",
+					"apiId": "createdBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created By",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that created this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "d0fb39a916f84d8db4408cfe1a4e8368",
+					"apiId": "createdAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created At",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "d0fb39a9-16f8-4d8d-b440-8cfe1a4e8368-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "d0fb39a9-16f8-4d8d-b440-8cfe1a4e8368-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "27ae1b9ff95c40ccb4b455f88bb3b652",
+					"apiId": "id",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "ID",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"stype": "ID",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "27ae1b9f-f95c-40cc-b4b4-55f88bb3b652-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "27ae1b9f-f95c-40cc-b4b4-55f88bb3b652-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "915acff99b634ebaa06a94cd65dec661",
+					"apiId": "dogName",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "Dog name",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "915acff9-9b63-4eba-a06a-94cd65dec661-form",
+						"renderer": "GCMS_MULTI_LINE",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "915acff9-9b63-4eba-a06a-94cd65dec661-table",
+						"renderer": "GCMS_MULTI_LINE"
+					}
+				},
+				{
+					"id": "132f2606f5394ad4987cb0fae62377b4",
+					"apiId": "testComponent2",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "test component2",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"ctype": "COMPONENT",
+					"component": {
+						"apiId": "TestComponent2"
+					}
+				},
+				{
+					"id": "06d11f3e12a2437cbd29943be3c10b5c",
+					"apiId": "article",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "Article",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "06d11f3e-12a2-437c-bd29-943be3c10b5c-form",
+						"renderer": "CUSTOM",
+						"config": {},
+						"extension": null,
+						"appElement": {
+							"id": "cf9fbddd6183490399cfbb5fd2040ef3",
+							"name": "epic-ckeditor",
+							"apiId": "epic-ckeditor",
+							"config": {},
+							"src": "http://localhost:3000/ckeditor/field",
+							"features": [
+								"FieldRenderer"
+							]
+						}
+					},
+					"tableConfig": {
+						"id": "06d11f3e-12a2-437c-bd29-943be3c10b5c-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "369be640f297439c9cbb910b3987f141",
+					"apiId": "note",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "note",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "369be640-f297-439c-9cbb-910b3987f141-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "369be640-f297-439c-9cbb-910b3987f141-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "e14a785894c140ee992d695fbab4fdec",
+					"apiId": "imagePicker",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "image picker",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"rtype": "ASSET",
+					"relatedModel": {
+						"apiId": "Asset",
+						"displayName": "Asset"
+					},
+					"relatedField": {
+						"apiId": "imagePickerTestModels",
+						"displayName": "imagePickerTestModels"
+					}
+				},
+				{
+					"id": "0e5fe7ac775c4a00974ba4f944306615",
+					"apiId": "avatar",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "Avatar",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"stype": "JSON",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "0e5fe7ac-775c-4a00-974b-a4f944306615-form",
+						"renderer": "CUSTOM",
+						"config": {},
+						"extension": null,
+						"appElement": {
+							"id": "c5e01ca146b443349b04e10be145e625",
+							"name": "epic-asset-picker",
+							"apiId": "epicAssetPickerLocal",
+							"config": {},
+							"src": "http://localhost:3000/epic-asset-picker/field",
+							"features": [
+								"ListRenderer",
+								"FieldRenderer"
+							]
+						}
+					},
+					"tableConfig": {
+						"id": "0e5fe7ac-775c-4a00-974b-a4f944306615-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "760eaf88e7a84261b2c9460467485ab9",
+					"apiId": "dailyNote",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "daily_note",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"stype": "RICHTEXT",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "760eaf88-e7a8-4261-b2c9-460467485ab9-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "760eaf88-e7a8-4261-b2c9-460467485ab9-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "99ba2a1213b84c71815b75b102ceacdf",
+					"apiId": "newTest",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "NewTest",
+					"parent": {
+						"apiId": "TestModels",
+						"displayName": "testModels"
+					},
+					"union": {
+						"apiId": "NewTestTestMitipleModels",
+						"displayName": "NewTestTestMitipleModels",
+						"field": {
+							"apiId": "testMitipleModels",
+							"createdAt": "2024-01-29T06:53:10.443Z",
+							"displayName": "test mitiple models",
+							"description": null,
+							"parent": {
+								"apiId": "NewTest",
+								"displayName": "newTest"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "TestModels"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				}
+			]
+		},
+		{
+			"id": "f8ad650136d3437d8f3aa2d883a6fc8d",
+			"apiId": "NewTest",
+			"apiIdPlural": "NewTests",
+			"displayName": "newTest",
+			"fields": [
+				{
+					"id": "82b7187406924a278aaccd49a3764cfc",
+					"apiId": "scheduledIn",
+					"isSystem": true,
+					"isList": true,
+					"displayName": "Scheduled In",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"union": {
+						"apiId": "ScheduledOperationAffectedDocument",
+						"displayName": "Scheduled Operation Affected Document",
+						"field": {
+							"apiId": "affectedDocuments",
+							"createdAt": "2023-07-26T03:08:43.014Z",
+							"displayName": "Affected Documents",
+							"description": null,
+							"parent": {
+								"apiId": "ScheduledOperation",
+								"displayName": "Scheduled Operation"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Asset"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "TestModels"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "NewTest"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "ModelGeneratedByApi"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test202425"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				},
+				{
+					"id": "9e383ada2c64460b9518552509ac67fe",
+					"apiId": "publishedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published By",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last published this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "e1d70a72d5e045d9b01422b1f3be2c59",
+					"apiId": "publishedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published At",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "e1d70a72-d5e0-45d9-b014-22b1f3be2c59-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "e1d70a72-d5e0-45d9-b014-22b1f3be2c59-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "0f550e73eace4cf6899d6e83ade4d883",
+					"apiId": "updatedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated By",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last updated this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "5e5db55e015c4e39848631a8f15b36f5",
+					"apiId": "updatedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated At",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "5e5db55e-015c-4e39-8486-31a8f15b36f5-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "5e5db55e-015c-4e39-8486-31a8f15b36f5-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "30c77159d2164da183969a34f82bce6f",
+					"apiId": "createdBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created By",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that created this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "21f044bc16334b119414a8e38ef36d14",
+					"apiId": "createdAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created At",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "21f044bc-1633-4b11-9414-a8e38ef36d14-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "21f044bc-1633-4b11-9414-a8e38ef36d14-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "fb11899319e8456b9a3c24dd21f28618",
+					"apiId": "id",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "ID",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"stype": "ID",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "fb118993-19e8-456b-9a3c-24dd21f28618-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "fb118993-19e8-456b-9a3c-24dd21f28618-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "7b6e86ffe6784dc2885c0ffa1cb7a5c6",
+					"apiId": "avatar",
+					"isSystem": false,
+					"isList": true,
+					"displayName": "Avatar",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"stype": "JSON",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "7b6e86ff-e678-4dc2-885c-0ffa1cb7a5c6-form",
+						"renderer": "CUSTOM",
+						"config": {},
+						"extension": null,
+						"appElement": {
+							"id": "c5e01ca146b443349b04e10be145e625",
+							"name": "epic-asset-picker",
+							"apiId": "epicAssetPickerLocal",
+							"config": {},
+							"src": "http://localhost:3000/epic-asset-picker/field",
+							"features": [
+								"ListRenderer",
+								"FieldRenderer"
+							]
+						}
+					},
+					"tableConfig": {
+						"id": "7b6e86ff-e678-4dc2-885c-0ffa1cb7a5c6-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "5711dbb974514c78bc658c45c9a45913",
+					"apiId": "testAssetPicker",
+					"isSystem": false,
+					"isList": true,
+					"displayName": "testAssetPicker",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"rtype": "ASSET",
+					"relatedModel": {
+						"apiId": "Asset",
+						"displayName": "Asset"
+					},
+					"relatedField": {
+						"apiId": "testAssetPickerNewTest",
+						"displayName": "testAssetPickerNewTest"
+					}
+				},
+				{
+					"id": "0fd89dcb120146a7875e00dd4e3d4a79",
+					"apiId": "environment",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "environment",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "0fd89dcb-1201-46a7-875e-00dd4e3d4a79-form",
+						"renderer": "CUSTOM",
+						"config": {},
+						"extension": null,
+						"appElement": {
+							"id": "24b32a86967a434aad09c0089755ed60",
+							"name": "epic tags",
+							"apiId": "epictags",
+							"config": {},
+							"src": "http://localhost:3000/epic-tags/field",
+							"features": [
+								"FieldRenderer"
+							]
+						}
+					},
+					"tableConfig": {
+						"id": "0fd89dcb-1201-46a7-875e-00dd4e3d4a79-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "c31a53b2be874c2ebf6df66b97386422",
+					"apiId": "startDate",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "startDate",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"stype": "DATE",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "c31a53b2-be87-4c2e-bf6d-f66b97386422-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "c31a53b2-be87-4c2e-bf6d-f66b97386422-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "b0c5591fb90b4d66a8479b824681cb1b",
+					"apiId": "animal",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "Animal",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"etype": "ENUMERATION",
+					"enumeration": {
+						"apiId": "Annimals"
+					}
+				},
+				{
+					"id": "c7612a3354d3466d83d4abe99523f2c0",
+					"apiId": "note",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "note",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "c7612a33-54d3-466d-83d4-abe99523f2c0-form",
+						"renderer": "GCMS_SINGLE_LINE",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "c7612a33-54d3-466d-83d4-abe99523f2c0-table",
+						"renderer": "GCMS_SINGLE_LINE"
+					}
+				},
+				{
+					"id": "453e73fea3b04892b394e2abbfbe10fc",
+					"apiId": "testCompoennt",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "test compoennt",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"ctype": "COMPONENT",
+					"component": {
+						"apiId": "TestComponent"
+					}
+				},
+				{
+					"id": "ec55dbf86d9c43c88a5e9ff7a7c31fa4",
+					"apiId": "testMultipleComponets",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "test multiple componets",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"cutype": "COMPONENT_UNION",
+					"components": [
+						{
+							"apiId": "TestComponent"
+						},
+						{
+							"apiId": "TestComponent2"
+						}
+					]
+				},
+				{
+					"id": "5d72fa62dfb34b7f81d97cf1b50a96f2",
+					"apiId": "testModels",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "TestModels",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"relatedModel": {
+						"apiId": "TestModels"
+					},
+					"udrtype": "RELATION",
+					"description": null,
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "381dcb5d55a54791bca0ec9e97babdbb",
+					"apiId": "testMitipleModels",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "test mitiple models",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"union": {
+						"apiId": "NewTestTestMitipleModels",
+						"displayName": "NewTestTestMitipleModels",
+						"field": {
+							"apiId": "testMitipleModels",
+							"createdAt": "2024-01-29T06:53:10.443Z",
+							"displayName": "test mitiple models",
+							"description": null,
+							"parent": {
+								"apiId": "NewTest",
+								"displayName": "newTest"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "TestModels"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				},
+				{
+					"id": "9b0c72c9bb9f4883a964ba280c1b0b50",
+					"apiId": "modelGeneratedByApi",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "ModelGeneratedByApi",
+					"parent": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"rtype": "RELATION",
+					"relatedModel": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"relatedField": {
+						"apiId": "newTest",
+						"displayName": "NewTest"
+					}
+				}
+			]
+		},
+		{
+			"id": "59bc1093ea8449b396ff0e0f668cdb96",
+			"apiId": "Model20231213",
+			"apiIdPlural": "Model20231213S",
+			"displayName": "🌌 Model2023-12-13",
+			"fields": [
+				{
+					"id": "080dd7b367be4968b8d5110d10300273",
+					"apiId": "scheduledIn",
+					"isSystem": true,
+					"isList": true,
+					"displayName": "Scheduled In",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"union": {
+						"apiId": "ScheduledOperationAffectedDocument",
+						"displayName": "Scheduled Operation Affected Document",
+						"field": {
+							"apiId": "affectedDocuments",
+							"createdAt": "2023-07-26T03:08:43.014Z",
+							"displayName": "Affected Documents",
+							"description": null,
+							"parent": {
+								"apiId": "ScheduledOperation",
+								"displayName": "Scheduled Operation"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Asset"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "TestModels"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "NewTest"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "ModelGeneratedByApi"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test202425"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				},
+				{
+					"id": "8e20b85a24c446d78b261aa84ddc1662",
+					"apiId": "publishedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published By",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last published this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "958bf2f810854e90bf46fa1437a1bc80",
+					"apiId": "publishedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published At",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "958bf2f8-1085-4e90-bf46-fa1437a1bc80-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "958bf2f8-1085-4e90-bf46-fa1437a1bc80-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "63e1e3fa8fe142489ce2da34e64e0b46",
+					"apiId": "updatedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated By",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last updated this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "163d26999ee748c1bd2a34d5db64f78e",
+					"apiId": "updatedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated At",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "163d2699-9ee7-48c1-bd2a-34d5db64f78e-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "163d2699-9ee7-48c1-bd2a-34d5db64f78e-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "b6fa10eb9fb14280b1c5bd5fee2ff3a0",
+					"apiId": "createdBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created By",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that created this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "c87136f08cfc422ea725ac7a3746cdd3",
+					"apiId": "createdAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created At",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "c87136f0-8cfc-422e-a725-ac7a3746cdd3-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "c87136f0-8cfc-422e-a725-ac7a3746cdd3-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "25908fa6e26b42d59ae01ef24b1b4483",
+					"apiId": "id",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "ID",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"stype": "ID",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "25908fa6-e26b-42d5-9ae0-1ef24b1b4483-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "25908fa6-e26b-42d5-9ae0-1ef24b1b4483-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "5c2974a35d2f48138f90e2a611b0930c",
+					"apiId": "name",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "name",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "5c2974a3-5d2f-4813-8f90-e2a611b0930c-form",
+						"renderer": "GCMS_SINGLE_LINE",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "5c2974a3-5d2f-4813-8f90-e2a611b0930c-table",
+						"renderer": "GCMS_SINGLE_LINE"
+					}
+				},
+				{
+					"id": "cf93611dc429445ab21b28655447d336",
+					"apiId": "modelGeneratedByApi",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "ModelGeneratedByApi",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"union": {
+						"apiId": "ModelGeneratedByApiSdfsdfasdfdsf",
+						"displayName": "ModelGeneratedByApiSdfsdfasdfdsf",
+						"field": {
+							"apiId": "sdfsdfasdfdsf",
+							"createdAt": "2024-02-04T06:54:02.548Z",
+							"displayName": "dfsfasdfas",
+							"description": null,
+							"parent": {
+								"apiId": "ModelGeneratedByApi",
+								"displayName": "model generated by api"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Test"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				},
+				{
+					"id": "c89b9356682742b9a660a3ed3e82e06a",
+					"apiId": "newTest",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "NewTest",
+					"parent": {
+						"apiId": "Model20231213",
+						"displayName": "🌌 Model2023-12-13"
+					},
+					"union": {
+						"apiId": "NewTestTestMitipleModels",
+						"displayName": "NewTestTestMitipleModels",
+						"field": {
+							"apiId": "testMitipleModels",
+							"createdAt": "2024-01-29T06:53:10.443Z",
+							"displayName": "test mitiple models",
+							"description": null,
+							"parent": {
+								"apiId": "NewTest",
+								"displayName": "newTest"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "TestModels"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				}
+			]
+		},
+		{
+			"id": "406d4e0a99264f938b85c956353eef84",
+			"apiId": "ModelGeneratedByApi",
+			"apiIdPlural": "PluralModelGeneratedByApi",
+			"displayName": "model generated by api",
+			"fields": [
+				{
+					"id": "471d5b9758bd49eb8547d663ef2dc2c8",
+					"apiId": "scheduledIn",
+					"isSystem": true,
+					"isList": true,
+					"displayName": "Scheduled In",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"union": {
+						"apiId": "ScheduledOperationAffectedDocument",
+						"displayName": "Scheduled Operation Affected Document",
+						"field": {
+							"apiId": "affectedDocuments",
+							"createdAt": "2023-07-26T03:08:43.014Z",
+							"displayName": "Affected Documents",
+							"description": null,
+							"parent": {
+								"apiId": "ScheduledOperation",
+								"displayName": "Scheduled Operation"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Asset"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "TestModels"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "NewTest"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "ModelGeneratedByApi"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test202425"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				},
+				{
+					"id": "936cbe3d844d479f8556d60e83ca73e2",
+					"apiId": "publishedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published By",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last published this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "55a1f12f360f443ea12066b0538c30a5",
+					"apiId": "publishedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published At",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "55a1f12f-360f-443e-a120-66b0538c30a5-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "55a1f12f-360f-443e-a120-66b0538c30a5-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "8116230ef4964d49915ca91c8b38f914",
+					"apiId": "updatedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated By",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last updated this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "c136ce60b29948aeab93270d1502d93a",
+					"apiId": "updatedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated At",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "c136ce60-b299-48ae-ab93-270d1502d93a-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "c136ce60-b299-48ae-ab93-270d1502d93a-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "781a7609162d45ad93443c4c192def83",
+					"apiId": "createdBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created By",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that created this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "198f5f2666f4498ab836fa68cb29b3c0",
+					"apiId": "createdAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created At",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "198f5f26-66f4-498a-b836-fa68cb29b3c0-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "198f5f26-66f4-498a-b836-fa68cb29b3c0-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "bcba4524cd6d473b9f3f06a6fdda1cf7",
+					"apiId": "id",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "ID",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"stype": "ID",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "bcba4524-cd6d-473b-9f3f-06a6fdda1cf7-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "bcba4524-cd6d-473b-9f3f-06a6fdda1cf7-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "c492212507544f61912e4adbf118f74c",
+					"apiId": "xxxx",
+					"isSystem": false,
+					"isList": true,
+					"displayName": "xxxx",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"rtype": "ASSET",
+					"relatedModel": {
+						"apiId": "Asset",
+						"displayName": "Asset"
+					},
+					"relatedField": {
+						"apiId": "xxxxModelGeneratedByApi",
+						"displayName": "xxxxModelGeneratedByApi"
+					}
+				},
+				{
+					"id": "a927575e2745476c962f446a65d7f95c",
+					"apiId": "testAsset",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "testAsset",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"rtype": "ASSET",
+					"relatedModel": {
+						"apiId": "Asset",
+						"displayName": "Asset"
+					},
+					"relatedField": {
+						"apiId": "testAssetModelGeneratedByApi",
+						"displayName": "testAssetModelGeneratedByApi"
+					}
+				},
+				{
+					"id": "8c2948762fb340789ae9d22aaf103dde",
+					"apiId": "newTest",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "NewTest",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"rtype": "RELATION",
+					"relatedModel": {
+						"apiId": "NewTest",
+						"displayName": "newTest"
+					},
+					"relatedField": {
+						"apiId": "modelGeneratedByApi",
+						"displayName": "ModelGeneratedByApi"
+					}
+				},
+				{
+					"id": "4ad339f4e8fd4e4189efc2de32c855e3",
+					"apiId": "tests",
+					"isSystem": false,
+					"isList": true,
+					"displayName": "Tests",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"relatedModel": {
+						"apiId": "Test"
+					},
+					"udrtype": "RELATION",
+					"description": null,
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "a12185f485114d03903ad502cf696913",
+					"apiId": "sdfsdfasdfdsf",
+					"isSystem": false,
+					"isList": true,
+					"displayName": "dfsfasdfas",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"union": {
+						"apiId": "ModelGeneratedByApiSdfsdfasdfdsf",
+						"displayName": "ModelGeneratedByApiSdfsdfasdfdsf",
+						"field": {
+							"apiId": "sdfsdfasdfdsf",
+							"createdAt": "2024-02-04T06:54:02.548Z",
+							"displayName": "dfsfasdfas",
+							"description": null,
+							"parent": {
+								"apiId": "ModelGeneratedByApi",
+								"displayName": "model generated by api"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Test"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				},
+				{
+					"id": "6c093acbc0e84d969217fdf26129cf8e",
+					"apiId": "hhaha",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "hhahah-r1",
+					"parent": {
+						"apiId": "ModelGeneratedByApi",
+						"displayName": "model generated by api"
+					},
+					"relatedModel": {
+						"apiId": "TestModels"
+					},
+					"udrtype": "RELATION",
+					"description": null,
+					"isHidden": false,
+					"isRequired": false
+				}
+			]
+		},
+		{
+			"id": "be8a944702a74bc6a4ba4c026420f12f",
+			"apiId": "Test202425",
+			"apiIdPlural": "Test202425S",
+			"displayName": "test202425",
+			"fields": [
+				{
+					"id": "fbeddb12694b4c46b44692f69fe6729c",
+					"apiId": "scheduledIn",
+					"isSystem": true,
+					"isList": true,
+					"displayName": "Scheduled In",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"union": {
+						"apiId": "ScheduledOperationAffectedDocument",
+						"displayName": "Scheduled Operation Affected Document",
+						"field": {
+							"apiId": "affectedDocuments",
+							"createdAt": "2023-07-26T03:08:43.014Z",
+							"displayName": "Affected Documents",
+							"description": null,
+							"parent": {
+								"apiId": "ScheduledOperation",
+								"displayName": "Scheduled Operation"
+							}
+						},
+						"memberTypes": [
+							{
+								"parent": {
+									"apiId": "Asset"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Model20231213"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "TestModels"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "NewTest"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "ModelGeneratedByApi"
+								}
+							},
+							{
+								"parent": {
+									"apiId": "Test202425"
+								}
+							}
+						]
+					},
+					"utype": "UNION"
+				},
+				{
+					"id": "19999a89aa6447bdaae592f74bb2120e",
+					"apiId": "publishedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published By",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last published this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "69c60007eb0a4316be5340013e71128f",
+					"apiId": "publishedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Published At",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "69c60007-eb0a-4316-be53-40013e71128f-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "69c60007-eb0a-4316-be53-40013e71128f-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "5b2be94a864a4b6083877fe3de911d06",
+					"apiId": "updatedBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated By",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that last updated this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "fd0f876a0c454984a90e0c3128cbe156",
+					"apiId": "updatedAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Updated At",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "fd0f876a-0c45-4984-a90e-0c3128cbe156-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "fd0f876a-0c45-4984-a90e-0c3128cbe156-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "a1c53a990cae4f49a347d68a0648bd15",
+					"apiId": "createdBy",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created By",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"relatedModel": {
+						"apiId": "User"
+					},
+					"udrtype": "RELATION",
+					"description": "User that created this document",
+					"isHidden": false,
+					"isRequired": false
+				},
+				{
+					"id": "3f331b7cd36949c78ed55e8f1b997dae",
+					"apiId": "createdAt",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "Created At",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"stype": "DATETIME",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "3f331b7c-d369-49c7-8ed5-5e8f1b997dae-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "3f331b7c-d369-49c7-8ed5-5e8f1b997dae-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "7449344695a04ddcab2132baff38ecc4",
+					"apiId": "id",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "ID",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"stype": "ID",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "74493446-95a0-4ddc-ab21-32baff38ecc4-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "74493446-95a0-4ddc-ab21-32baff38ecc4-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "5262c040b88940e9ba8b047552a6fdef",
+					"apiId": "aaaa",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "aaaa",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "5262c040-b889-40e9-ba8b-047552a6fdef-form",
+						"renderer": "GCMS_SINGLE_LINE",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "5262c040-b889-40e9-ba8b-047552a6fdef-table",
+						"renderer": "GCMS_SINGLE_LINE"
+					}
+				},
+				{
+					"id": "90d260933b5243c38f0fdaf7c9afe08e",
+					"apiId": "bbb",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "bbb",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "90d26093-3b52-43c3-8f0f-daf7c9afe08e-form",
+						"renderer": "GCMS_MULTI_LINE",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "90d26093-3b52-43c3-8f0f-daf7c9afe08e-table",
+						"renderer": "GCMS_MULTI_LINE"
+					}
+				},
+				{
+					"id": "2b50bb5aad3643b9811d65faadb447fc",
+					"apiId": "mmmm",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "mmmm",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"stype": "LOCATION",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "2b50bb5a-ad36-43b9-811d-65faadb447fc-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "2b50bb5a-ad36-43b9-811d-65faadb447fc-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "28cebedc38be45279dbe52241023ace4",
+					"apiId": "ppppp",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "ppppp",
+					"parent": {
+						"apiId": "Test202425",
+						"displayName": "test202425"
+					},
+					"etype": "ENUMERATION",
+					"enumeration": {
+						"apiId": "Annimals"
+					}
+				}
+			]
+		}
+	],
+	"components": [
+		{
+			"id": "47e7a6e64ff540c68a9690f10dfe2720",
+			"apiId": "TestComponent",
+			"apiIdPlural": "TestComponents",
+			"displayName": "testComponent",
+			"fields": [
+				{
+					"id": "f8555eba2e1f409a929500ce7ca5a0d0",
+					"apiId": "id",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "ID",
+					"parent": {
+						"apiId": "TestComponent",
+						"displayName": "testComponent"
+					},
+					"stype": "ID",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "f8555eba-2e1f-409a-9295-00ce7ca5a0d0-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "f8555eba-2e1f-409a-9295-00ce7ca5a0d0-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "c437aad2810f41d68c376cf2feef5a81",
+					"apiId": "content",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "content",
+					"parent": {
+						"apiId": "TestComponent",
+						"displayName": "testComponent"
+					},
+					"stype": "RICHTEXT",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "c437aad2-810f-41d6-8c37-6cf2feef5a81-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "c437aad2-810f-41d6-8c37-6cf2feef5a81-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "ffc152f23de5463288db314648663cda",
+					"apiId": "text",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "Text",
+					"parent": {
+						"apiId": "TestComponent",
+						"displayName": "testComponent"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "ffc152f2-3de5-4632-88db-314648663cda-form",
+						"renderer": "GCMS_SINGLE_LINE",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "ffc152f2-3de5-4632-88db-314648663cda-table",
+						"renderer": "GCMS_SINGLE_LINE"
+					}
+				},
+				{
+					"id": "e989308f672347a9864b7336e7c501a2",
+					"apiId": "primarySchoolComposition",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "primarySchoolComposition",
+					"parent": {
+						"apiId": "TestComponent",
+						"displayName": "testComponent"
+					},
+					"stype": "STRING",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "e989308f-6723-47a9-864b-7336e7c501a2-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "e989308f-6723-47a9-864b-7336e7c501a2-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "1a6f2a9e3a5e400ca6866cef18848c31",
+					"apiId": "model20231213S",
+					"isSystem": false,
+					"isList": true,
+					"displayName": "Model20231213S",
+					"parent": {
+						"apiId": "TestComponent",
+						"displayName": "testComponent"
+					},
+					"relatedModel": {
+						"apiId": "Model20231213"
+					},
+					"udrtype": "RELATION",
+					"description": null,
+					"isHidden": false,
+					"isRequired": false
+				}
+			]
+		},
+		{
+			"id": "796dcaa9b640441892f81bdf9a92847c",
+			"apiId": "TestComponent2",
+			"apiIdPlural": "TestComponent2S",
+			"displayName": "testComponent2",
+			"fields": [
+				{
+					"id": "1e571e3df760475daec24c98959599ab",
+					"apiId": "id",
+					"isSystem": true,
+					"isList": false,
+					"displayName": "ID",
+					"parent": {
+						"apiId": "TestComponent2",
+						"displayName": "testComponent2"
+					},
+					"stype": "ID",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "1e571e3d-f760-475d-aec2-4c98959599ab-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "1e571e3d-f760-475d-aec2-4c98959599ab-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "32c67fcee6f647ad88dc1aa86c36dfe2",
+					"apiId": "location",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "location",
+					"parent": {
+						"apiId": "TestComponent2",
+						"displayName": "testComponent2"
+					},
+					"stype": "LOCATION",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "32c67fce-e6f6-47ad-88dc-1aa86c36dfe2-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "32c67fce-e6f6-47ad-88dc-1aa86c36dfe2-table",
+						"renderer": "GCMS"
+					}
+				},
+				{
+					"id": "f0e1c2781e444b6ca8c5d9cbad8c29dd",
+					"apiId": "avatar",
+					"isSystem": false,
+					"isList": false,
+					"displayName": "Avatar",
+					"parent": {
+						"apiId": "TestComponent2",
+						"displayName": "testComponent2"
+					},
+					"stype": "JSON",
+					"isLocalized": false,
+					"formConfig": {
+						"id": "f0e1c278-1e44-4b6c-a8c5-d9cbad8c29dd-form",
+						"renderer": "GCMS",
+						"config": {},
+						"extension": null,
+						"appElement": null
+					},
+					"tableConfig": {
+						"id": "f0e1c278-1e44-4b6c-a8c5-d9cbad8c29dd-table",
+						"renderer": "GCMS"
+					}
+				}
+			]
+		}
+	],
+	"enumerations": [
+		{
+			"id": "bfb88cecd9054924b83a9c0ac3256e2a",
+			"apiId": "Annimals",
+			"displayName": "annimals",
+			"values": [
+				{
+					"id": "7340d34c26634f9ba92fad8c47797213",
+					"apiId": "Dog",
+					"displayName": "Dog"
+				},
+				{
+					"id": "e2e0a99b039a4c9e902675a779e2665d",
+					"apiId": "Cat",
+					"displayName": "Cat"
+				}
+			],
+			"isSystem": false
+		}
+	],
+	"endpoint": "https://api-ca-central-1.hygraph.com/v2/clkj5cbjq0p3h01ulcusyd8ty/master"
+}

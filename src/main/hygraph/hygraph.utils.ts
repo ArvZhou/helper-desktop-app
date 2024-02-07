@@ -24,6 +24,7 @@ import {
   UnionField,
   UnionFieldType,
 } from '@hygraph/management-sdk';
+import { log } from 'electron-log';
 
 export type CommonFieldType =
   | SimpleField
@@ -63,6 +64,7 @@ type SchemeFragment = {
     viewer: {
       project: {
         environment: {
+          endpoint: string;
           contentModel: dataStructure;
         };
       };
@@ -82,7 +84,7 @@ export type ActionType =
   | 'createUnionField';
 
 export type SyncListItem = {
-  actionType: ActionType;
+  operationName: ActionType;
   data:
     | BatchMigrationCreateModelInput
     | BatchMigrationCreateSimpleFieldInput
@@ -102,10 +104,6 @@ export type CreateModelInput = BatchMigrationCreateModelInput & {
 export type CreateComponentInput = BatchMigrationCreateComponentInput & {
   fields: FieldType[];
 };
-
-// export type SimpleFieldInput = BatchMigrationCreateSimpleFieldInput;
-
-// export type EnumerableFieldInput = BatchMigrationCreateEnumerableFieldInput;
 
 export const getAllSchemas = async ({
   MANAGEMENT_URL,
@@ -129,35 +127,20 @@ export const getAllSchemas = async ({
       variables: { projectId: PROJECT_ID, environment: ENVIRONMENT },
     }),
   });
-
   const allDocument = (await reslut.json()) as SchemeFragment;
+  const endpoint = allDocument.data.viewer.project.environment.endpoint;
 
-  return allDocument.data.viewer.project.environment.contentModel;
+  return { ...allDocument.data.viewer.project.environment.contentModel, endpoint };
 };
 
-export const getTypeCategory = (type: string) => {
-  if (type in Object.values(SimpleFieldType)) {
-    return 's'
-  }
+export const exportJSON = (json: any, filename: string) => {
+  fs.writeFile(`${__dirname}/.data/${filename}.json`,JSON.stringify(json, null,"\t"),function(err){
+    if (err) {
+      log(err);
+    }
+  })
+}
 
-  if (type in Object.values(EnumerableFieldType)) {
-    return 'e'
-  }
-
-  if (type in Object.values(ComponentFieldType)) {
-    return 'c'
-  }
-
-  if (type in Object.values(ComponentUnionFieldType)) {
-    return 'cu'
-  }
-
-  if (type in Object.values(RelationalFieldType)) {
-    return 'r'
-  }
-
-  if (type in Object.values(UnionFieldType)) {
-    return 'u'
-  }
-  return '';
+export const getJSONFormFile = (filename: string) => {
+  return JSON.parse(fs.readFileSync(`${__dirname}/.data/${filename}.json`, 'utf-8'));
 }
