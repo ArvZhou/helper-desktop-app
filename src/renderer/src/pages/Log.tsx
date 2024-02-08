@@ -1,10 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Terminal } from 'xterm';
 import 'xterm/css/xterm.css'
 import styles from './log.module.css'
 
 export default function Log() {
   const xtermRef = useRef<HTMLDivElement>(null);
+  const [term, setTerm] = useState<Terminal | null>(null)
 
   useEffect(() => {
     const term = new Terminal({
@@ -28,11 +29,26 @@ export default function Log() {
       }
     });
     term.open(xtermRef.current as HTMLDivElement);
-    term.writeln('Start to sync project...\n');
-    for (let i = 0; i < 300; i++) {
-      term.write(`Hello from \x1B[1;3;31mxterm.js\x1B[0m $ `);
-    }
+    setTerm(term);
   },[])
+
+  useEffect(() => {
+    if (!term) return;
+    window.hygraphSyncApi.onHygraphSync(({msg, type}) => {
+      console.log(msg, type);
+      if (type === 'info' || !type) {
+        term.writeln(`\x1b[34m${msg}\x1b[0m`);
+      }
+
+      if (type === 'error') {
+        term.writeln(`\x1b[31m${msg}\x1b[0m`);
+      }
+
+      if (type === 'warn') {
+        term.writeln(`\x1b[3m${msg}\x1b[0m`);
+      }
+    });
+  }, [term])
 
   return (
     <div ref={xtermRef} className={styles.xtermContainer}></div>

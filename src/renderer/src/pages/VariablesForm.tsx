@@ -58,11 +58,8 @@ export default function VariablesForm() {
   })
 
   const onSubmit = useCallback( async (value: Variables) => {
-    const isStart = await window.hygraphSyncApi.hygraphSync_start(value);
-
-    if (isStart) {
-      navigate('/log');
-    }
+    navigate('/log');
+    window.hygraphSyncApi.hygraphSync_start(value);
   }, [navigate]);
 
   return (
@@ -88,7 +85,7 @@ export default function VariablesForm() {
       <Divider />
       <form onSubmit={handleSubmit(onSubmit)}>
         <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Sharing Project Info
+            Source Project Info
         </Typography>
         <Paper sx={{ p: 2, mt: 1 }} elevation={1}>
           <Grid2 container spacing={2}>

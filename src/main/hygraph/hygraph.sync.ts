@@ -41,7 +41,7 @@ export class HygraphSync {
   targetEnumerations: BatchMigrationCreateEnumerationInput[];
   currentAddingApiIds: Record<string, boolean>;
 
-  constructor(projectInfo: Variables) {
+  constructor(projectInfo: Variables, log?: (arg: string) => void) {
     this.projectInfo = projectInfo;
     this.syncList= [];
     this.shareComponents = [];
@@ -50,14 +50,24 @@ export class HygraphSync {
     this.targetComponents = [];
     this.targetEnumerations = [];
     this.currentAddingApiIds = {};
-    this.startSync(projectInfo);
+    if (log) {
+      this.log = log;
+    }
+    this.startSync();
   }
 
-  async startSync({ SHARE_PROJECT, TARGET_PROJECT }: Variables) {
+  log(str: string) {
+    console.log(str)
+  }
+
+  async startSync() {
+    this.log("Start to get source project's schema!");
+    const { SHARE_PROJECT, TARGET_PROJECT } = this.projectInfo;
     const shareSchema = await getAllSchemas(SHARE_PROJECT);
     this.shareEnumerations = shareSchema.enumerations;
     this.shareModels = shareSchema.models;
     this.shareComponents = shareSchema.components;
+    this.log("Get source project's schema over!");
     exportJSON(shareSchema, 'share_schema');
 
     const targetSchema = await getAllSchemas(TARGET_PROJECT);
@@ -161,13 +171,20 @@ export class HygraphSync {
     }
   }
 
+  /**
+ * Adds fields from source list to target list if they don't already exist
+ * @param sFields - Source fields to be checked against
+ * @param tFields - Target fields to add to
+ * @param callback - Callback function to be called for each field that is added
+ */
   addFieldsToList(
     sFields: FieldType[],
     tFields: FieldType[],
     callback: (field: FieldType) => void,
   ) {
-    console.log('sFields', sFields);
+    // Iterate through source fields
     for (const field of sFields) {
+      // Skip system fields
       if (field.isSystem) {
         continue;
       }
@@ -183,6 +200,8 @@ export class HygraphSync {
           description: sField.description,
           parentApiId: sField.parent?.apiId,
           type: sField.stype,
+          isRequired: sField.isRequired,
+          isList: sField.isList,
         });
       }
 
@@ -423,28 +442,64 @@ export class HygraphSync {
     }
   }
 
+    /**
+   * Add a simple field to the sync list.
+   *
+   * @param {BatchMigrationCreateSimpleFieldInput} data - the data for creating a simple field
+   * @return {void}
+   */
   addSimpleFieldToSyncList(data: BatchMigrationCreateSimpleFieldInput) {
     this.syncList.push({ operationName: 'createSimpleField', data });
   }
 
+    /**
+   * Adds an enumerable field to the sync list.
+   *
+   * @param {BatchMigrationCreateEnumerableFieldInput} data - the data for creating the enumerable field
+   * @return {void}
+   */
   addEnumerableFieldToSyncList(data: BatchMigrationCreateEnumerableFieldInput) {
     this.syncList.push({ operationName: 'createEnumerableField', data });
   }
 
+    /**
+   * Add component field to sync list.
+   *
+   * @param {BatchMigrationCreateComponentFieldInput} data - the data for creating component field
+   * @return {void}
+   */
   addComponentFiledToSyncList(data: BatchMigrationCreateComponentFieldInput) {
     this.syncList.push({ operationName: 'createComponentField', data });
   }
 
+  /**
+   * Add a component union field to the sync list.
+   *
+   * @param {BatchMigrationCreateComponentUnionFieldInput} data - the data for creating the component union field
+   * @return {void}
+   */
   addComponentUnionFieldToSyncList(
     data: BatchMigrationCreateComponentUnionFieldInput,
   ) {
     this.syncList.push({ operationName: 'createComponentUnionField', data });
   }
 
+  /**
+   * Adds a relational field to the sync list.
+   *
+   * @param {BatchMigrationCreateRelationalFieldInput} data - the input for creating a relational field
+   * @return {void}
+   */
   addRelationalFieldToSyncList(data: BatchMigrationCreateRelationalFieldInput) {
     this.syncList.push({ operationName: 'createRelationalField', data });
   }
 
+    /**
+   * Adds a union field to the sync list.
+   *
+   * @param {BatchMigrationCreateUnionFieldInput} data - the data for creating the union field
+   * @return {void}
+   */
   addUnionFieldToSyncList(data: BatchMigrationCreateUnionFieldInput) {
     this.syncList.push({ operationName: 'createUnionField', data });
   }

@@ -1,5 +1,6 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import VariablesForm from './pages/VariablesForm';
+import ShareReslut from './pages/ShareReslut'
 import Log from './pages/Log';
 
 export default function App() {

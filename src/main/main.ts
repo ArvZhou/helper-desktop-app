@@ -24,12 +24,7 @@ class AppUpdater {
   }
 }
 
-let mainWindow: BrowserWindow | null = null;
-
-ipcMain.handle('hygraphSync:start', (_event, projectInfo) => new HygraphSync(projectInfo));
-ipcMain.handle('hygraphSync:openLog', () => {
-  shell.openPath(log.transports.file.getFile()!.path);
-})
+let mainWindow: BrowserWindow | null = null
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -106,6 +101,32 @@ const createWindow = async () => {
     shell.openExternal(edata.url);
     return { action: 'deny' };
   });
+
+  const customLog = (msg: string, type?: string) => {
+    if (!type || type === 'info') {
+      log.info(msg);
+    }
+
+    if (type === 'warn') {
+      log.warn(msg);
+    }
+
+    if (type === 'error') {
+      log.error(msg);
+    }
+
+    mainWindow?.webContents.send('hygraphSync:msg', {msg, type})
+  };
+
+  ipcMain.handle('hygraphSync:start', (_event, projectInfo) => {
+    new HygraphSync(projectInfo, customLog);
+
+    return true
+  });
+
+  ipcMain.handle('hygraphSync:openLog', () => {
+    shell.openPath(log.transports.file.getFile()!.path);
+  })
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line

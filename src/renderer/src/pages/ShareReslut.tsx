@@ -20,17 +20,17 @@ export default function Log() {
           <TableRow>
             <TableCell>Create Model</TableCell>
             <TableCell>Test Model 1</TableCell>
-            <TableCell>Successfully</TableCell>
+            <TableCell>Success</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Create Simple Field</TableCell>
             <TableCell>Article</TableCell>
-            <TableCell>Successfully</TableCell>
+            <TableCell>Success</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Create Component</TableCell>
             <TableCell>Header</TableCell>
-            <TableCell>Successfully</TableCell>
+            <TableCell>Success</TableCell>
           </TableRow>
         </TableBody>
       </Table>
