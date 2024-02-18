@@ -18,6 +18,8 @@ import VisuallyHiddenInput from '../components/VisuallyHiddenInput';
 import { getJSONFromFile } from '../utils/file.utils';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 import { Variables, projectDefaultVariables } from '../contants';
+import IconButton from '@mui/material/IconButton';
+import { ImportIcon, LogIcon } from '../components/icons';
 
 type InputsType = {
   name: FieldPath<Variables>;
@@ -69,17 +71,13 @@ export default function VariablesForm() {
           Hygraph Sync Tool
         </Typography>
         <Box>
-          <Button variant="text" component="label" size="small">
-            <Typography variant="subtitle1" textTransform="none" fontSize={14}>
-              Import Project Infomation
-            </Typography>
+          <IconButton component="label" size="small">
+            <ImportIcon />
             <VisuallyHiddenInput type="file" onChange={onSelect} />
-          </Button>
-          <Button variant="text" component="label" size="small" onClick={() => window.hygraphSyncApi.hygraphSync_openLog()}>
-            <Typography variant="body1" textTransform="none" fontSize={13}>
-              Log
-            </Typography>
-          </Button>
+          </IconButton>
+          <IconButton size="small" color="primary" onClick={() => window.hygraphSyncApi.hygraphSync_openLog()}>
+            <LogIcon />
+          </IconButton>
         </Box>
       </Box>
       <Divider />

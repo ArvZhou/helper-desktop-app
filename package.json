@@ -74,7 +74,9 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
     "@hygraph/management-sdk": "^1.2.4",
+    "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.6",
+    "dayjs": "^1.11.10",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^6.1.4",
@@ -82,7 +84,8 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.3",
     "react-router-dom": "^6.16.0",
-    "xterm": "^5.3.0"
+    "xterm": "^5.3.0",
+    "xterm-addon-fit": "^0.8.0"
   },
   "devDependencies": {
     "@electron/notarize": "^2.1.0",
@@ -153,7 +156,7 @@
   },
   "build": {
     "productName": "HygraphSync",
-    "appId": "org.erb.HygraphSyncd",
+    "appId": "org.erb.HygraphSync",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [

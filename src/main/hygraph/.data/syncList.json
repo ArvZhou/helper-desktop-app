@@ -1,1 +1,146 @@
-[]
+[
+	{
+		"operationName": "createModel",
+		"data": {
+			"apiId": "NewTest",
+			"apiIdPlural": "NewTests",
+			"displayName": "newTest"
+		}
+	},
+	{
+		"operationName": "createSimpleField",
+		"data": {
+			"apiId": "avatar",
+			"displayName": "Avatar",
+			"parentApiId": "NewTest",
+			"type": "JSON",
+			"isList": true
+		}
+	},
+	{
+		"operationName": "createRelationalField",
+		"data": {
+			"apiId": "testAssetPicker",
+			"parentApiId": "NewTest",
+			"displayName": "testAssetPicker",
+			"type": "ASSET",
+			"isList": true,
+			"reverseField": {
+				"modelApiId": "Asset",
+				"apiId": "testAssetPickerNewTest",
+				"displayName": "testAssetPickerNewTest"
+			}
+		}
+	},
+	{
+		"operationName": "createSimpleField",
+		"data": {
+			"apiId": "environment",
+			"displayName": "environment",
+			"parentApiId": "NewTest",
+			"type": "STRING",
+			"isList": false
+		}
+	},
+	{
+		"operationName": "createSimpleField",
+		"data": {
+			"apiId": "startDate",
+			"displayName": "startDate",
+			"parentApiId": "NewTest",
+			"type": "DATE",
+			"isList": false
+		}
+	},
+	{
+		"operationName": "createEnumerableField",
+		"data": {
+			"apiId": "animal",
+			"displayName": "Animal",
+			"parentApiId": "NewTest",
+			"enumerationApiId": "Annimals"
+		}
+	},
+	{
+		"operationName": "createSimpleField",
+		"data": {
+			"apiId": "note",
+			"displayName": "note",
+			"parentApiId": "NewTest",
+			"type": "STRING",
+			"isList": false
+		}
+	},
+	{
+		"operationName": "createRelationalField",
+		"data": {
+			"apiId": "newTest",
+			"parentApiId": "ModelGeneratedByApi",
+			"displayName": "NewTest",
+			"type": "RELATION",
+			"isList": false,
+			"reverseField": {
+				"modelApiId": "NewTest",
+				"apiId": "modelGeneratedByApi",
+				"displayName": "ModelGeneratedByApi"
+			}
+		}
+	},
+	{
+		"operationName": "createComponentField",
+		"data": {
+			"apiId": "testCompoennt",
+			"displayName": "test compoennt",
+			"componentApiId": "TestComponent",
+			"parentApiId": "NewTest"
+		}
+	},
+	{
+		"operationName": "createComponentUnionField",
+		"data": {
+			"apiId": "testMultipleComponets",
+			"displayName": "test multiple componets",
+			"parentApiId": "NewTest",
+			"componentApiIds": [
+				"TestComponent",
+				"TestComponent2"
+			]
+		}
+	},
+	{
+		"operationName": "createRelationalField",
+		"data": {
+			"apiId": "testModels",
+			"parentApiId": "NewTest",
+			"displayName": "TestModels",
+			"description": null,
+			"type": "RELATION",
+			"isList": false,
+			"isRequired": false,
+			"reverseField": {
+				"modelApiId": "TestModels",
+				"apiId": "testModels",
+				"displayName": "TestModels",
+				"isUnidirectional": true
+			}
+		}
+	},
+	{
+		"operationName": "createUnionField",
+		"data": {
+			"apiId": "testMitipleModels",
+			"displayName": "test mitiple models",
+			"parentApiId": "NewTest",
+			"isList": false,
+			"reverseField": {
+				"apiId": "testMitipleModels",
+				"modelApiIds": [
+					"Model20231213",
+					"TestModels"
+				],
+				"displayName": "test mitiple models",
+				"description": null
+			}
+		}
+	}
+]

@@ -1,37 +1,66 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import ReplyIcon from '@mui/icons-material/Reply';
+import { SyncListItem } from '../../../main/hygraph/hygraph.utils';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import Divider from '@mui/material/Divider';
+import { LogIcon } from '../components/icons';
 
 export default function Log() {
+  const {
+    state: { syncList },
+  } = useLocation();
+  const navigate = useNavigate();
+  const list = JSON.parse(syncList) as SyncListItem[];
+
+  console.log('list', list.length);
+
   return (
     <Box p={2}>
+      <Box justifyContent="space-between" display="flex">
+        <Typography variant="h5" gutterBottom>
+          Log Reslut Page
+        </Typography>
+        <Box>
+          <IconButton
+            size="small"
+            color="primary"
+            onClick={() => window.hygraphSyncApi.hygraphSync_openLog()}
+          >
+            <LogIcon />
+          </IconButton>
+          <IconButton
+            size="small"
+            color="primary"
+            onClick={() => navigate('/')}
+          >
+            <ReplyIcon />
+          </IconButton>
+        </Box>
+      </Box>
+      <Divider />
       <Table stickyHeader size="small" aria-label="domains config table">
         <TableHead>
           <TableRow>
             <TableCell width="20%">Action</TableCell>
-            <TableCell width="30%">Name</TableCell>
-            <TableCell width="30%">Status</TableCell>
+            <TableCell width="70%">Name</TableCell>
+            <TableCell width="10%">Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell>Create Model</TableCell>
-            <TableCell>Test Model 1</TableCell>
-            <TableCell>Success</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Create Simple Field</TableCell>
-            <TableCell>Article</TableCell>
-            <TableCell>Success</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Create Component</TableCell>
-            <TableCell>Header</TableCell>
-            <TableCell>Success</TableCell>
-          </TableRow>
+          {list.map(({ operationName, data }) => (
+            <TableRow key={operationName}>
+              <TableCell>{data.apiId}</TableCell>
+              <TableCell>{data.displayName}</TableCell>
+              <TableCell>Success</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </Box>

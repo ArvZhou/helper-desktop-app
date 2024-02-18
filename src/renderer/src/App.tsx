@@ -9,6 +9,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<VariablesForm />} />
         <Route path="/log" element={<Log />} />
+        <Route path="/share-result" element={<ShareReslut />} />
       </Routes>
     </Router>
   );

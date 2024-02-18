@@ -66,7 +66,7 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 900,
+    width: 800,
     height: 550,
     icon: getAssetPath('icon.png'),
     webPreferences: {
@@ -102,24 +102,8 @@ const createWindow = async () => {
     return { action: 'deny' };
   });
 
-  const customLog = (msg: string, type?: string) => {
-    if (!type || type === 'info') {
-      log.info(msg);
-    }
-
-    if (type === 'warn') {
-      log.warn(msg);
-    }
-
-    if (type === 'error') {
-      log.error(msg);
-    }
-
-    mainWindow?.webContents.send('hygraphSync:msg', {msg, type})
-  };
-
   ipcMain.handle('hygraphSync:start', (_event, projectInfo) => {
-    new HygraphSync(projectInfo, customLog);
+    new HygraphSync(projectInfo, mainWindow || undefined);
 
     return true
   });
