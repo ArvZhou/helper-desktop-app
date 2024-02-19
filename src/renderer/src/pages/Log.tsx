@@ -62,9 +62,10 @@ export default function Log() {
     });
 
     window.hygraphSyncApi.hygraphSyncSuccess((syncList: string) => {
-      console.log('syncList', syncList);
-      if (syncList !== 'error') {
-        navigate('/share-result', { state: { syncList } });
+      if (syncList) {
+        setTimeout(() => {
+          navigate('/share-result', { state: { syncList } });
+        }, 1000)
       }
 
       setEnd(true);

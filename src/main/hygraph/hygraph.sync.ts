@@ -656,7 +656,7 @@ export class HygraphSync {
 
     if (this.syncList.length === 0) {
       this.log('No data to sync, all data is up to date', 'warn');
-      this.mainWindow?.webContents.send('hygraphSync:success', 'error')
+      this.mainWindow?.webContents.send('hygraphSync:success', '')
       return;
     }
 
@@ -733,7 +733,7 @@ export class HygraphSync {
       this.log('Mutation process failed!', 'error');
       this.log(JSON.stringify(changes.errors), 'error');
 
-      this.mainWindow?.webContents.send('hygraphSync:success', 'error');
+      this.mainWindow?.webContents.send('hygraphSync:success', '');
     }
   }
 }

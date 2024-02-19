@@ -19,11 +19,9 @@ export default function Log() {
   const navigate = useNavigate();
   const list = JSON.parse(syncList) as SyncListItem[];
 
-  console.log('list', list.length);
-
   return (
-    <Box p={2}>
-      <Box justifyContent="space-between" display="flex">
+    <Box height={'100%'} display={'flex'} flexDirection={'column'}>
+      <Box justifyContent="space-between" display="flex" p={2}>
         <Typography variant="h5" gutterBottom>
           Log Reslut Page
         </Typography>
@@ -45,24 +43,26 @@ export default function Log() {
         </Box>
       </Box>
       <Divider />
-      <Table stickyHeader size="small" aria-label="domains config table">
-        <TableHead>
-          <TableRow>
-            <TableCell width="20%">Action</TableCell>
-            <TableCell width="70%">Name</TableCell>
-            <TableCell width="10%">Status</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {list.map(({ operationName, data }) => (
-            <TableRow key={operationName}>
-              <TableCell>{data.apiId}</TableCell>
-              <TableCell>{data.displayName}</TableCell>
-              <TableCell>Success</TableCell>
+      <Box flex={1} overflow={"auto"}>
+        <Table stickyHeader size="small" aria-label="domains config table">
+          <TableHead>
+            <TableRow>
+              <TableCell width="20%">Action</TableCell>
+              <TableCell width="70%">Name</TableCell>
+              <TableCell width="10%">Status</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {list.map(({ operationName, data }) => (
+              <TableRow key={operationName}>
+                <TableCell>{operationName}</TableCell>
+                <TableCell>{data.displayName}</TableCell>
+                <TableCell>Success</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Box>
     </Box>
   );
 }
